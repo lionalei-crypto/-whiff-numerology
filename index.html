@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiff Macau | 生命靈數香氣指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8a6d62;
+            --secondary: #d7ccc8;
+            --accent: #a1887f;
+            --light: #efebe9;
+            --dark: #4e342e;
+            --text: #3e2723;
+            --highlight: #d1c4e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .brand-logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .input-section {
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--light);
+        }
+        
+        .input-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        input[type="date"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        input[type="date"]:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(161, 136, 127, 0.2);
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .result-section {
+            display: none;
+            padding: 40px 20px;
+        }
+        
+        .number-display {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .number-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border-radius: 50%;
+            font-size: 3.5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            border: 5px solid var(--light);
+        }
+        
+        .number-title {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .analysis-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .analysis-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title i {
+            background: var(--secondary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+        }
+        
+        .scent-section {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .scent-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .scent-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .scent-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .scent-body {
+            padding: 25px;
+        }
+        
+        .scent-title {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .scent-list {
+            list-style: none;
+        }
+        
+        .scent-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .scent-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .scent-list i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        
+        .product-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .product-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .product-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .product-link:hover {
+            background: var(--dark);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--dark);
+            color: white;
+            margin-top: 40px;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .reset-btn {
+            background: var(--accent);
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .brand-logo {
+                height: 50px;
+            }
+            
+            .analysis-container, .scent-container {
+                flex-direction: column;
+            }
+            
+            .input-container {
+                padding: 20px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand-header">
+                <img src="https://www.instagram.com/whiff_macau/" alt="Whiff Macau" class="brand-logo">
+                <h1>生命靈數香氣指南</h1>
+            </div>
+            <p class="subtitle">輸入您的生日，探索您的生命靈數，找到與您能量共鳴的專屬香氛</p>
+        </header>
+        
+        <section class="input-section">
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="birthday"><i class="fas fa-calendar-alt"></i> 請選擇您的出生日期</label>
+                    <input type="date" id="birthday" max="2023-12-31">
+                </div>
+                <button id="calculate-btn"><i class="fas fa-magic"></i> 計算我的生命靈數</button>
+            </div>
+        </section>
+        
+        <section class="result-section" id="result-section">
+            <div class="number-display">
+                <div class="number-circle" id="life-number">7</div>
+                <h2 class="number-title" id="number-title">冥想者 · 真理探索者</h2>
+                <p>您的生命靈數揭示了您的核心能量與香氣的完美匹配</p>
+            </div>
+            
+            <div class="analysis-container">
+                <div class="analysis-card">
+                    <h3 class="card-title"><i class="fas fa-seedling"></i> 核心本質</h3>
+                    <p id="core-essence">數字7代表深度思考、精神探索和直覺洞察。您擁有強大的分析能力和求知欲，渴望理解生命的深層意義。</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <h3 class="card-title"><i class="fas fa-star"></i> 天賦優勢</h3>
+                    <p id="strengths">您擁有敏銳的直覺、強大的分析能力和專注力。您善於獨立思考，能夠深入理解複雜概念，並具有精神層面的洞察力。</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <h3 class="card-title"><i class="fas fa-cloud"></i> 陰影挑戰</h3>
+                    <p id="challenges">有時可能過度分析導致癱瘓，過於理性而忽視情感表達，容易陷入懷疑和悲觀，以及回避社交互動。</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <h3 class="card-title"><i class="fas fa-bullseye"></i> 靈魂使命</h3>
+                    <p id="mission">將您的知識與智慧轉化為實踐，成為啟發他人的嚮導。平衡理性與感性，將深刻的見解轉化為有形的貢獻。</p>
+                </div>
+            </div>
+            
+            <div class="scent-section">
+                <h2><i class="fas fa-wind"></i> 專屬香氣推薦</h2>
+                <p>這些香氛與您的能量完美共振，幫助您平衡內在力量</p>
+                
+                <div class="scent-container">
+                    <div class="scent-card">
+                        <div class="scent-header">
+                            <h3><i class="fas fa-wine-bottle"></i> 精油推薦</h3>
+                        </div>
+                        <div class="scent-body">
+                            <h4 class="scent-title">適合您的精油</h4>
+                            <ul class="scent-list" id="oil-list">
+                                <li><i class="fas fa-check-circle"></i> <strong>檀香</strong> - 靜心錨點，平息腦內雜音</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>乳香</strong> - 提升靜坐專注力，連結高層意識</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>雪松</strong> - 強化心智清晰度，如思想之樹</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>岩蘭草</strong> - 將飄浮的思緒"拉回身體"</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>廣藿香</strong> - 接納混沌，學習非理性之美</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-section">
+                <h2 class="product-title"><i class="fas fa-store"></i> WHIFF 推薦香氛</h2>
+                <p>以下產品特別適合您的生命靈數，點擊查看Instagram詳情</p>
+                
+                <div class="product-grid" id="product-grid">
+                    <!-- 產品將由JavaScript動態生成 -->
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="reset-btn" id="reset-btn"><i class="fas fa-redo"></i> 重新計算</button>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>生命靈數香氣指南 &copy; 2023 | WHIFF MACAU 專屬推薦</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/whiff_macau/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-line"></i></a>
+            </div>
+            <p>探索更多香氛藝術，請追蹤我們的社交媒體</p>
+        </footer>
+    </div>
+
+    <script>
+        // 生命靈數數據庫
+        const lifePathData = {
+            1: {
+                title: "開創者 · 領導者",
+                essence: "數字1代表原始生命力、獨立創始和領導力。您擁有強大的開創性能量，是天生的先鋒和領導者。",
+                strengths: "您擁有強大的意志力、決斷力和創新能力。您能夠獨立行動，勇於開拓新領域，並激勵他人跟隨您的願景。",
+                challenges: "有時可能過於強勢或獨斷，忽視他人意見；害怕表現脆弱；以及過度競爭傾向。",
+                mission: "學習在領導中融入合作，將個人願景轉化為集體力量，同時保持您的創新精神。",
+                oils: [
+                    "黑胡椒：辛辣感喚醒腎上腺素，強化決斷勇氣",
+                    "杜松子：清冽針葉香淨化自我懷疑",
+                    "岩玫瑰：苦甜樹脂象徵「強韌與脆弱共存」"
+                ],
+                products: [
+                    {
+                        name: "冒險家系列 - 黑胡椒",
+                        desc: "激發原始行動力的辛辣調，適合1號領導者",
+                        img: "https://example.com/whiff1.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    },
+                    {
+                        name: "領袖之水",
+                        desc: "雪松與琥珀的強韌組合，增強決斷力",
+                        img: "https://example.com/whiff2.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            2: {
+                title: "調和者 · 合作者",
+                essence: "數字2代表和諧、合作與直覺。您擁有強大的共情能力，是天生的外交家和協調者。",
+                strengths: "您擅長傾聽、建立和諧關係並感知微妙情緒。您具有出色的合作精神和耐心，能夠在團隊中創造平衡。",
+                challenges: "可能過度妥協而失去自我；避免衝突；過度敏感；以及難以做出決定。",
+                mission: "在保持和諧與合作的同時，勇敢表達真實自我，建立健康的邊界。",
+                oils: [
+                    "藍膠尤加利：清澈涼感劃出安全距離",
+                    "玫瑰草：似玫瑰卻更野生，喚醒溫柔中的野性",
+                    "白玉蘭：月光感白花，引導溫和表達需求"
+                ],
+                products: [
+                    {
+                        name: "和諧花園",
+                        desc: "玫瑰與白麝香的溫柔平衡",
+                        img: "https://example.com/whiff3.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            3: {
+                title: "創造者 · 表達者",
+                essence: "數字3代表創造力、表達與喜悅。您擁有豐富的想像力和溝通天賦，是快樂的傳播者。",
+                strengths: "您充滿靈感、幽默感和表達魅力。您能夠輕鬆與人交流，用創意點亮周圍環境，並具有藝術天賦。",
+                challenges: "可能分散精力於多個項目；害怕批評；表面化處理問題；以及過度依賴他人認可。",
+                mission: "聚焦您的創造力，深入發展天賦，用您的表達力傳播積極影響。",
+                oils: [
+                    "佛手柑：陽光柑橘調中帶細微苦澀，平衡玩心",
+                    "沒藥：古老藥香沉澱浮動思緒",
+                    "鳶尾根：粉感泥土氣息，接納創作陰影面"
+                ],
+                products: [
+                    {
+                        name: "創意火花",
+                        desc: "柑橘與生薑的活力組合，激發創造力",
+                        img: "https://example.com/whiff4.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            4: {
+                title: "建設者 · 務實者",
+                essence: "數字4代表穩定、秩序與實踐。您擁有強大的組織能力和務實精神，是可靠的基石。",
+                strengths: "您踏實可靠、注重細節且具有強大執行力。您能夠建立穩固基礎，善於規劃並堅持完成目標。",
+                challenges: "可能抗拒變化；過度僵化；害怕冒險；以及忽視情感表達。",
+                mission: "在保持穩定和務實的同時，擁抱適度變化，學會靈活應對生活。",
+                oils: [
+                    "生薑：暖辣香氣融化情感冰層",
+                    "當歸根：藥感壤香，象徵「從泥土長出新生」",
+                    "零陵香豆：甜暖粉感，誘發安全感親密"
+                ],
+                products: [
+                    {
+                        name: "大地根基",
+                        desc: "廣藿香與雪松的穩固香調",
+                        img: "https://example.com/whiff5.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            5: {
+                title: "自由者 · 探索者",
+                essence: "數字5代表自由、變化與冒險。您擁有強大的適應能力和好奇心，是生活的探索者。",
+                strengths: "您充滿活力、適應力強且熱愛自由。您能夠擁抱變化，善於溝通並渴望體驗生活多樣性。",
+                challenges: "可能逃避承諾；分散精力；衝動決策；以及難以深入關係。",
+                mission: "在享受自由和變化的同時，培養深度和承諾，將冒險精神轉化為成長動力。",
+                oils: [
+                    "小荳蔻：溫暖辛香提供冒險中的歸屬感",
+                    "印蒿：發酵果香象徵「變化即永恆」",
+                    "穗甘松：濃郁根莖香，連結大地能量"
+                ],
+                products: [
+                    {
+                        name: "流浪者之歌",
+                        desc: "異國辛香與木質的自由組合",
+                        img: "https://example.com/whiff6.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            6: {
+                title: "養育者 · 治癒者",
+                essence: "數字6代表責任、關愛與治癒。您擁有強大的養育能力和審美意識，是天然的治療者。",
+                strengths: "您充滿愛心、責任感強且具有治癒能力。您能夠創造和諧環境，關心他人需求並具有藝術美感。",
+                challenges: "可能過度犧牲自己；干涉他人生活；完美主義傾向；以及忽視自我需求。",
+                mission: "在關愛他人的同時建立健康邊界，學習平衡付出與自我滋養。",
+                oils: [
+                    "桂花：豐潤甜香中帶杏脯酸澀，破除聖母情結",
+                    "白芷根：溼潤苔蘚感，接納陰影面",
+                    "紅沒藥：溫暖樹脂，重建自我價值感"
+                ],
+                products: [
+                    {
+                        name: "療癒花園",
+                        desc: "玫瑰與香草的溫柔擁抱",
+                        img: "https://example.com/whiff7.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            7: {
+                title: "冥想者 · 真理探索者",
+                essence: "數字7代表深度思考、精神探索和直覺洞察。您擁有強大的分析能力和求知欲，渴望理解生命的深層意義。",
+                strengths: "您擁有敏銳的直覺、強大的分析能力和專注力。您善於獨立思考，能夠深入理解複雜概念，並具有精神層面的洞察力。",
+                challenges: "有時可能過度分析導致癱瘓，過於理性而忽視情感表達，容易陷入懷疑和悲觀，以及回避社交互動。",
+                mission: "將您的知識與智慧轉化為實踐，成為啟發他人的嚮導。平衡理性與感性，將深刻的見解轉化為有形的貢獻。",
+                oils: [
+                    "檀香：靜心錨點，平息腦內雜音，誘導深度冥想狀態",
+                    "乳香：提升祈禱/靜坐的專注力，連結高層意識",
+                    "雪松：強化心智清晰度，如森林中屹立的思想之樹",
+                    "岩蘭草：將飄浮的思緒「拉回身體」，緩解分析癱瘓",
+                    "廣藿香：潮濕泥土感象徵接納混沌，學習非理性之美"
+                ],
+                products: [
+                    {
+                        name: "哲學家沉思",
+                        desc: "檀香與乳香的神聖組合",
+                        img: "https://example.com/whiff8.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    },
+                    {
+                        name: "午夜圖書館",
+                        desc: "皮革與雪松的書卷氣息",
+                        img: "https://example.com/whiff9.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            8: {
+                title: "成就者 · 豐盛創造者",
+                essence: "數字8代表權力、豐盛與成就。您擁有強大的商業頭腦和領導力，是物質世界的建築師。",
+                strengths: "您具有戰略思維、資源管理能力和執行力。您能夠實現目標，處理複雜事務並創造物質豐盛。",
+                challenges: "可能過度重視物質；權力控制欲；工作狂傾向；以及忽視情感生活。",
+                mission: "在追求成就的同時保持平衡，將物質成功與精神滿足結合，用財富創造積極影響。",
+                oils: [
+                    "沉香：千年傷痕結油，象徵傷痛轉智慧",
+                    "香草蘭姆酒：奢華甜醉感，釋放緊繃神經",
+                    "絲柏：挺拔木質，引導能量服務更高目的"
+                ],
+                products: [
+                    {
+                        name: "權力遊戲",
+                        desc: "沉香與皮革的奢華組合",
+                        img: "https://example.com/whiff10.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            },
+            9: {
+                title: "人道主義者 · 智慧傳播者",
+                essence: "數字9代表智慧、博愛與完成。您擁有廣闊的視野和同情心，是宇宙智慧的傳播者。",
+                strengths: "您充滿同情心、理想主義且具有全局觀。您能夠理解不同觀點，關心人類福祉並具有智慧。",
+                challenges: "可能過度理想化；逃避現實問題；救世主情結；以及難以放下過去。",
+                mission: "在服務人類的同時保持現實基礎，將理想轉化為具體行動，完成您的精神使命。",
+                oils: [
+                    "艾草：苦澀藥香劃清奉獻界線",
+                    "咖啡花：烘烤焦香，象徵「務實的浪漫」",
+                    "聖檀木：神聖木質，錨定此刻使命"
+                ],
+                products: [
+                    {
+                        name: "世界公民",
+                        desc: "異國香料與木質的包容組合",
+                        img: "https://example.com/whiff11.jpg",
+                        link: "https://www.instagram.com/p/Cx9J5YvJQ7H/"
+                    }
+                ]
+            }
+        };
+
+        // DOM 元素
+        const birthdayInput = document.getElementById('birthday');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const resultSection = document.getElementById('result-section');
+        const lifeNumberEl = document.getElementById('life-number');
+        const numberTitleEl = document.getElementById('number-title');
+        const coreEssenceEl = document.getElementById('core-essence');
+        const strengthsEl = document.getElementById('strengths');
+        const challengesEl = document.getElementById('challenges');
+        const missionEl = document.getElementById('mission');
+        const oilListEl = document.getElementById('oil-list');
+        const productGridEl = document.getElementById('product-grid');
+
+        // 計算生命靈數
+        function calculateLifePathNumber(dateString) {
+            const cleaned = dateString.replace(/\D/g, '');
+            let sum = 0;
+            
+            for (let i = 0; i < cleaned.length; i++) {
+                sum += parseInt(cleaned[i]);
+            }
+            
+            // 反覆相加直到得到個位數
+            while (sum > 9 && sum !== 11 && sum !== 22 && sum !== 33) {
+                let tempSum = 0;
+                const digits = sum.toString();
+                
+                for (let i = 0; i < digits.length; i++) {
+                    tempSum += parseInt(digits[i]);
+                }
+                
+                sum = tempSum;
+            }
+            
+            return sum;
+        }
+
+        // 顯示結果
+        function showResult(number) {
+            const data = lifePathData[number];
+            
+            if (!data) return;
+            
+            // 更新DOM內容
+            lifeNumberEl.textContent = number;
+            numberTitleEl.textContent = data.title;
+            coreEssenceEl.textContent = data.essence;
+            strengthsEl.textContent = data.strengths;
+            challengesEl.textContent = data.challenges;
+            missionEl.textContent = data.mission;
+            
+            // 更新精油列表
+            oilListEl.innerHTML = '';
+            data.oils.forEach(oil => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle"></i> <strong>${oil.split('：')[0]}</strong> - ${oil.split('：')[1]}`;
+                oilListEl.appendChild(li);
+            });
+            
+            // 更新產品推薦
+            productGridEl.innerHTML = '';
+            if (data.products && data.products.length > 0) {
+                data.products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.img}" alt="${product.name}" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-desc">${product.desc}</p>
+                            <a href="${product.link}" target="_blank" class="product-link">查看詳情</a>
+                        </div>
+                    `;
+                    productGridEl.appendChild(productCard);
+                });
+            } else {
+                productGridEl.innerHTML = '<p>暫無推薦產品，請查看我們的其他系列</p>';
+            }
+            
+            // 顯示結果部分
+            resultSection.style.display = 'block';
+            
+            // 滾動到結果部分
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 事件監聽器
+        calculateBtn.addEventListener('click', () => {
+            if (!birthdayInput.value) {
+                alert('請輸入您的生日');
+                return;
+            }
+            
+            const lifeNumber = calculateLifePathNumber(birthdayInput.value);
+            showResult(lifeNumber);
+        });
+        
+        resetBtn.addEventListener('click', () => {
+            birthdayInput.value = '';
+            resultSection.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 設置默認日期（示例）
+        const today = new Date();
+        const defaultDate = new Date(today.getFullYear() - 30, today.getMonth(), today.getDate());
+        const year = defaultDate.getFullYear();
+        const month = String(defaultDate.getMonth() + 1).padStart(2, '0');
+        const day = String(defaultDate.getDate()).padStart(2, '0');
+        birthdayInput.value = `${year}-${month}-${day}`;
+    </script>
+</body>
+</html>
